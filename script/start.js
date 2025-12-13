@@ -1,4 +1,4 @@
-const targetURL = "index.html";
+const targetURL = "main.html";
 const idleDuration = 20000;
 const fadeDuration = 500; 
 
