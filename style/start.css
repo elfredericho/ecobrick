@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+    overflow: hidden; 
+    font-family: 'Titan One', sans-serif;
+}
+
+.start-screen {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('/assets/img/global/banner.png'); 
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transform: scale(1.05); 
+    transition: filter 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.start-screen.fade-out-bg {
+    filter: blur(10px) brightness(0.8);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.content-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center;
+}
+
+.content-wrapper.fade-out-text {
+    opacity: 0; 
+    transform: translateY(-50px) scale(0.9);
+}
+
+.main-link {
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    animation: jump 2.5s infinite ease-in-out;
+}
+
+.main-link:hover {
+    animation-play-state: paused;
+    transform: scale(1.05);
+}
+
+.title {
+    font-family: 'Titan One', display;
+    font-size: 10rem; 
+    line-height: 0.85; 
+    color: #eb3d00;
+    text-transform: uppercase;
+    text-shadow: 
+    4px 4px 0px #fff,
+    -4px -4px 0px #fff,
+    4px -4px 0px #fff,
+    -4px 4px 0px #fff,
+    6px 6px 0px rgba(0,0,0,0.15); 
+    margin-bottom: 25px;
+    transition: transform 0.2s;
+}
+
+.title span { 
+    display: block; 
+}
+
+.subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    color: #333;
+    padding: 10px 20px;
+    font-weight: normal;
+    opacity: 0;
+    animation: fadeLoop 2.4s ease-in-out infinite;
+}
+
+@keyframes jump {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes fadeLoop {
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .title { 
+        font-size: 6rem; 
+    }
+    .subtitle { 
+        font-size: 1.2rem; 
+    }
+}
+
+@media (max-width: 480px) {
+    .title { 
+        font-size: 4rem; 
+    }
+    .subtitle { 
+        font-size: 1rem; 
+    }
+}

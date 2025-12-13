@@ -1,0 +1,1092 @@
+/* ================================
+   1. FONDASI & GLOBAL UTILITIES
+================================== */
+/* 1.1 FONT EKSTERNAL */
+@font-face {
+    font-family: 'TheSeasons';
+    src: url('../assets/font/Fontspring-DEMO-theseasons-bd.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TheSeasons';
+    src: url('../assets/font/Fontspring-DEMO-theseasons-it.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+/* 1.2 GLOBAL RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 1.3 ROOT & PALETTE UTAMA */
+:root {
+    --primary-color: #eb3d00;      
+    --secondary-color: #4e1b11;    
+    --primary-txt: #1d1d1d;    
+    --secondary-txt: #ffedd2;   
+    --alt-color: #fcf8f0;
+
+    --subtitle-color: var(--primary-color);
+    --cta-bg: var(--primary-color);
+    --bg-card-color: var(--alt-color);
+    --title-card-color: var(--primary-color);
+    --gallery-tabs-bg: var(--secondary-color);
+    --member-card-bg: var(--primary-color);
+    
+    --logo-image-src: url('../assets/img/global/logo-nav-light.png');
+    --image-bg-pattern: url('../assets/img/global/primarybg.jpeg');
+    
+    --shadow-base: 0 2px 5px rgba(0,0,0,0.5);
+    --shadow-hero-img : 0.9375rem 0.9375rem 0 rgba(17, 17, 17, 0.28);
+
+    --gradient-eco-overlay: linear-gradient(rgba(255, 227, 175, 0.5), rgba(255, 227, 175, 0.5));
+    --gradient-eco-content: linear-gradient(rgba(235, 61, 0, 1), rgba(254, 237, 209, 1));
+    --gradient-eco-guidecard: linear-gradient(to right, rgba(235, 61, 0, 1), rgba(254, 237, 209, 1)); 
+}
+
+/* 1.4 DARK MODE OVERRIDES */
+.dark-mode {
+    --primary-color: #0e0e0e;
+    --secondary-color: #EDEDED;
+    --primary-txt: #b4b4b4; 
+    --secondary-txt: #7a7a7aff; 
+    --alt-color: #EDEDED; 
+
+    --subtitle-color: var(--primary-txt);
+    --cta-bg: var(--primary-txt);;
+    --bg-card-color: var(--primary-color);
+    --title-card-color: var(--secondary-color);
+    --gallery-tabs-bg: var(--secondary-txt);
+    --member-card-bg: var(--secondary-txt);
+
+    --logo-image-src: url('../assets/img/global/logo-nav-dark.png');
+    --image-bg-pattern: url('../assets/img/global/primarybgdark.jpg');
+
+    --shadow-base: 0 4px 12px rgba(0, 0, 0, 0.8);
+    --shadow-hero-img : 0.9375rem 0.9375rem 0 rgba(158, 158, 158, 0.28);
+
+    --gradient-eco-overlay: linear-gradient(rgba(34, 34, 34, 0.2),rgba(37, 37, 37, 0.5));
+    --gradient-eco-content: linear-gradient(rgba(98, 98, 98, 0.3),rgba(14, 14, 14, 0.7));
+    --gradient-eco-guidecard: linear-gradient(to right,rgba(98, 98, 98, 0.35),rgba(14, 14, 14, 0.6));
+}
+
+
+/* =========================
+   2. BASE STYLING
+========================= */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--primary-txt);
+    line-height: 1.6;
+    background: var(--image-bg-pattern);
+    background-color: var(--alt-color);
+    background-repeat: repeat;
+}
+
+section{
+    min-height: 100vh;
+    padding: 4rem 10% 10rem;
+    scroll-margin-top: 3.75rem;
+}
+
+.section-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 4.375rem;
+    color: var(--subtitle-color);
+    text-align: center;
+    padding: 0.625rem 0;
+    margin-top: 0;
+    border-bottom: 0.1875rem solid var(--subtitle-color);
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 2.1 NAVBAR */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--primary-color);
+    padding: 0.625rem 1.25rem;
+    box-shadow: var(--shadow-base);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 75rem;
+    margin: 0 auto;
+}
+
+/* 2.1.1 LOGO */
+#logo {
+    width: 40px;
+    height: 40px;
+    content: var(--logo-image-src);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-family: 'TheSeasons', serif;
+    font-size: 1.5625rem;
+    font-weight: 700;
+}
+
+.logo img {
+    margin-right: 0.3125rem;
+}
+
+.firstname {
+    color: var(--secondary-color);
+    margin-right: 0.3125rem;
+}
+
+.lastname {
+    color: var(--secondary-txt);
+}
+
+/* 2.1.2 NAV LINKS */
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li a {
+    padding: 0.625rem 0.9375rem;
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: 500;
+    border-radius:  0.3125rem;
+    transition: 0.25s ease;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+    color: var(--secondary-txt);
+}
+
+.actions {
+    margin-right: 1.25rem;
+}
+
+#dark-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.375rem 0.5rem;
+    display: flex;
+    align-items: center;
+    color:var(--alt-color);
+}
+
+#dark-toggle i {
+    font-size: 1.4rem;
+    opacity: 0.85;
+    transition: 0.25s ease;
+}
+
+#dark-toggle:hover i {
+    opacity: 0.55;
+    transform: scale(1.08);
+}
+
+#menu-icon {
+    display: none;
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+/* 2.2 HERO SECTION */
+.hero {
+    width: 100%;
+    background: none; 
+    display: flex;
+    align-items: center;  
+    justify-content: space-between;
+    padding: 0 8%; 
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 37.5rem;
+    z-index: 2;
+    text-align: left; 
+}
+
+.hero-title {
+    font-family: 'TheSeasons', serif;
+    font-size: 4.5rem;
+    line-height: 1.15;
+    color: var(--secondary-color);
+    margin-bottom: 0.9375rem;
+}
+
+.hero-desc {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--secondary-color);
+    margin-bottom: 1.25rem;
+    max-width: 90%;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1.25rem
+}
+
+.btn {
+    padding: 0.625rem 1.375rem;
+    border-radius: 0.375rem;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.primary-btn {
+    background-color: var(--cta-bg);
+    color: var(--alt-color);
+}
+
+.primary-btn:hover {
+    opacity: 0.85;
+}
+
+.secondary-btn {
+    border: 0.0625rem solid var(--cta-bg);
+    color: var(--cta-bg);
+}
+
+.secondary-btn:hover {
+    background-color: var(--cta-bg);
+    color: var(--alt-color);
+}
+
+.hero-image {
+    background: transparent;
+    padding: 0;
+    border-radius: 1.25rem;
+    box-shadow: var(--shadow-hero-img);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 28.125rem; 
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem; 
+    object-fit: cover;
+}
+
+/* 2.3 ECOBRICK SECTION*/
+.ecobrick{
+    min-height: auto; 
+    background-image: var(--gradient-eco-overlay), var(--image-bg-pattern);
+    background-repeat: repeat; 
+    background-color: var(--secondary-txt); 
+    padding-top: 0.625rem;
+    padding-bottom: 3.125rem;
+    padding-left: 0; 
+    padding-right: 0;
+}
+
+.ecobrick-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 3rem 10%;
+}
+
+.ecobrick-content{
+    background: var(--gradient-eco-content);
+    padding: 3.125rem 5.625rem;
+    border-radius: 7.5rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.4); 
+    margin-bottom: 2.5rem;
+}
+
+.ecobrick-subtitle {
+    font-family: 'TheSeasons', serif;
+    font-size: 3.375rem;
+    color: var(--secondary-txt);
+    margin-bottom: 0.625rem;
+}
+
+/* 2.3.1 Ecobrick : Materi 1 - Apa itu Ecobrick? */
+.introduction {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.introduction-img img {
+    width: 15.625rem;;
+}
+
+.introduction-text p {
+    font-family: 'Poppins', sans-serif;
+    color: var(--secondary-color);
+    line-height: 1.7;
+    font-size: 1.125rem;
+    text-align: justify;
+    margin-bottom: 0.9375rem;
+}
+
+/* 2.3.2 Ecobrick : Materi 2 - Manfaat EcoBrick */
+.benefit-list {
+    list-style: none;
+    padding: 0;
+}
+
+.benefit-list li {
+    margin-bottom: 1.25rem;
+}
+
+.benefit-list h4 {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+}
+
+.benefit-list p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--secondary-color);
+}
+
+/* 2.3.3 Ecobrick : Materi 3 - Cara Pembuatan */
+.steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 1.5625rem;
+}
+
+.step-card {
+    background-color: var(--bg-card-color); 
+    padding: 1.25rem;
+    border-radius: 3.125rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: 12.5rem; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.step-card:hover {
+    transform: translateY(-0.3125rem); 
+    box-shadow: 0 0.625rem 1.25rem rgba(0, 0, 0, 0.15); 
+    cursor: pointer; 
+}
+
+.step-number {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.375rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    background: var(--alt-color);
+    border-radius: 50%;
+    width: 3.75rem;
+    height: 3.75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.9375rem;
+    border: 0.1875rem solid var(--primary-color);
+}
+
+.step-text {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--secondary-color);
+}
+
+/* 2.3.4 Ecobrick : Materi 4 - Guidelines */
+.guidelines-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.875rem;
+}
+
+.guidelines-list li {
+    margin-bottom: 0;
+}
+
+.guidelines-card {
+    padding: 1.25rem;
+    border-radius: 1.875rem;
+    box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
+    min-height: 9.375rem;
+    background: var(--gradient-eco-guidecard); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.guidelines-card:hover {
+    transform: translateY(-0.3125rem); 
+    box-shadow: 0 0.9375rem 1.5625rem rgba(0, 0, 0, 0.3); 
+}
+
+.guidelines-card h4 {
+    font-size: 1.25rem;
+    margin-bottom: 0.3125rem;
+    margin-top: 0;
+    color: var(--secondary-txt); 
+    display: flex; 
+    align-items: center;
+}
+
+.guidelines-card .guidelines-icon {
+    font-size: 1.625rem;
+    margin-right: 0.625rem;
+    color: var(--secondary-color);
+    flex-shrink: 0;
+}
+
+.guidelines-card p {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--secondary-color);
+}
+
+/* 2.3.5 Ecobrick : Materi 5 - Pemanfaatan Ecobrick */
+.application-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.563rem;
+    margin-top: 1.875rem;
+}
+
+.application-card {
+    background-color: var(--bg-card-color);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.application-card:hover {
+    transform: translateY(-0.313rem);
+    box-shadow: 0 0.938rem 1.563rem rgba(0, 0, 0, 0.25);
+}
+
+.card-image-placeholder img{
+    width: 100%;
+    height: 12.5rem;
+    object-fit: cover;
+    display: block;
+}
+
+.application-card h4 {
+    font-size: 1.375rem;
+    color: var(--title-card-color);
+    padding: 0.938rem 0.938rem 0.313rem;
+    margin-top: 0;
+}
+
+.application-card p {
+    font-size: 0.938rem;
+    line-height: 1.5;
+    color: var(--primary-txt);
+    padding: 0 0.938rem 0.938rem;
+}
+
+/* 2.4 Galeri Section */
+.gallery {
+    text-align: center;
+    padding: 0.625rem 0 7rem;
+}
+
+.gallery-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1.25rem;
+    margin: 2.5rem 0;
+}
+
+.gallery-tabs .tab {
+    padding: 0.625rem 1.375rem;
+    border: none;
+    border-radius: 0.625rem;
+    background: var(--gallery-tabs-bg);
+    color: var(--alt-color);
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.gallery-tabs .tab.active {
+    background: var(--primary-color);
+}
+
+.gallery-tabs .tab:hover {
+    transform: translateY(-0.25rem);
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 2.188rem;
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+}
+
+.gallery-card {
+    background: var(--bg-card-color);
+    border-radius: 1rem;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--title-card-color);
+    box-shadow: 0 0.5rem 1.563rem rgba(0, 0, 0, 0.10);
+    transition: 0.3s ease;
+}
+
+.gallery-card:hover {
+    transform: translateY(-0.5rem);
+}
+
+.gallery-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.gallery-info {
+    padding: 0.938rem;
+    text-align: left;
+}
+
+.gallery-info h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.375rem;
+}
+
+.gallery-info p {
+    color: var(--primary-txt);
+    font-size: 0.813rem;
+    opacity: 0.75;
+    line-height: 1.3;
+}
+
+.tiktok-img {
+    width: 100%;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+}
+
+.tiktok-img img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover; 
+}
+
+.hide {
+    display: none;
+}
+
+/* 2.5 About Section */
+.about {
+    text-align: center;
+    padding: 0.625rem 0;
+}
+
+.about-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.875rem;
+    padding: 0 4.375rem;
+}
+
+.member-card {
+    width: 13.75rem;
+    margin: 2.5rem 0 0.625rem;
+    border-radius: 1.375rem; 
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.3s ease;
+    background: var(--member-card-bg);
+}
+
+.member-card:hover {
+    transform: translateY(-0.5rem);
+}
+
+.member-card img {
+    width: 100%;
+    height: 16.25rem;
+    object-fit: cover;
+    border-radius: 1.125rem;
+    display: block;
+}
+
+.member-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.75rem; /* 12px */
+    color: var(--alt-color);
+    text-align: center;
+    border-radius: 0 0 1.125rem 1.125rem;
+    background: rgba(0, 0, 0, 0.25);
+    text-shadow: 0 0.063rem 0.125rem rgba(0,0,0,0.5);
+}
+
+.member-info h3 {
+    font-size: 0.938rem;
+    font-weight: 600;
+    margin: 0 0 0.25rem;
+}
+
+.member-info p {
+    margin: 0;
+    font-size: 0.813rem;
+    line-height: 1.2;
+}
+
+/* 2.6 Footer */
+.footer {
+    background: var(--primary-color);
+    padding: 3.125rem 0 1.563rem;
+    color: var(--secondary-txt);
+    margin-top: 5rem;
+    border-radius: 2.188rem 2.188rem 0 0;
+    box-shadow: 0 -0.313rem 1.563rem rgba(0,0,0,0.15); 
+}
+
+.footer-wrapper {
+    max-width: 71.875rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6rem;
+    padding: 0 1.25rem;
+}
+
+.footer-col h3 {
+    font-size: 1.125rem;
+    margin-bottom: 0.875rem;
+    font-weight: 700;
+}
+
+.footer-col a,
+.footer-col p {
+    font-size: 0.875rem;
+    color: var(--alt-color);
+    text-decoration: none;
+    margin-bottom: 0.375rem;
+    display: block;
+    opacity: 0.85;
+    transition: .2s ease;
+}
+
+.footer-col a:hover {
+    opacity: 1;
+    transform: translateX(0.313rem);
+}
+
+.footer-col.brand h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.625rem;
+}
+
+.footer-col .brand p {
+    opacity: .9;
+    line-height: 1.4;
+}
+
+.footer-social a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.footer-col .contacts {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 22px;
+    font-size: 13px;
+    opacity: .75;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin-top: 30px;
+}
+
+.bg-pattern-wrapper {
+    background-image: var(--gradient-eco-overlay);
+}
+
+/* ================================
+   3. Responsive
+================================== */
+@media (min-width: 1440px) {
+    html {
+        font-size: 110%;
+    }
+}
+
+@media (max-width: 1024px) {
+    html {
+        font-size: 70%;
+    }
+    .hero-content h1 {
+        font-size: 5.3rem;
+    }
+    .hero-desc {
+        font-size: 1.2rem;
+    }
+    .btn{
+        font-size: 1.3rem;
+    }
+    .hero-image{
+            max-width: 33.125rem; 
+    }
+    .ecobrick-container {
+        gap: 8rem;
+    }
+    .about-container{
+        padding: 0 10rem;
+    }
+}
+
+@media (max-width: 991px) {
+    html {
+        font-size: 52.5%;
+    }
+
+    header {
+        padding: 2rem 3%;
+    }
+    .application-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .about-container{
+        padding: 0 20rem;
+    }
+}
+
+@media (max-width: 895px) {
+    html {
+        font-size: 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 48.5%;
+    }
+    nav {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        justify-content: space-between;
+        width: 100%;
+    }
+    .header nav .logo {
+        margin-right: auto;
+    }
+    .logo {
+        font-size: 2.9rem;
+    }
+    #menu-icon {
+        display: block;
+        order: 2;
+        font-size: 3rem;
+        cursor: pointer;
+    }
+    .actions {
+        order: 1;
+    }
+    #dark-toggle {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 2.5rem;
+        color: var(--primary-txt);
+        padding: 0;
+    }
+    .actions #dark-toggle i {
+        font-size: 2.3rem;
+        color: var(--primary-txt);
+    }
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 50%;
+        padding: 1rem 3%;
+        background: var(--primary-color);
+        backdrop-filter: blur(20px);
+        border-bottom-left-radius: 2rem;
+        border-left: 2px solid var(--secondary-color);
+        border-bottom: 2px solid var(--secondary-color);
+        list-style: none;
+        margin: 0;
+    }
+    .nav-links.active {
+        display: block;
+    }
+    .nav-links li a {
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+        color: var(--primary-txt);
+        text-decoration: none;
+    }
+    .nav-links li a.active {
+        font-weight: bold;
+        color: var(--main-color);
+    }
+    .hero {
+        padding-top: 14rem;
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 4rem;
+    }
+    .hero-content {
+        width: 100%;
+        text-align: center;
+    }
+    .hero-content h1 {
+        font-size: 5.4rem;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+    .hero-content p {
+        max-width: 600px;
+        margin: 0 auto;
+        font-size: 1.7rem;
+        text-align: center;
+    }
+    .hero-buttons {
+        display: flex;
+        justify-content: center;
+        margin: 2rem 0 7rem;
+        gap: 2rem;
+        width: 100%;
+    }
+    .hero-image {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        box-shadow: 0.5rem 0.5rem 0 rgba(17, 17, 17, 0.28);
+    }
+    .dark-mode .hero-image {
+        box-shadow: 0.5rem 0.5rem 0 rgba(158, 158, 158, 0.28);
+    }
+    .hero-image img {
+        width: 55vw;
+        margin: 0 auto;
+        border-radius: 1.4rem;
+    }
+    .ecobrick-container{
+        gap: 2rem;
+    }/
+    .ecobrick-content {
+        flex-direction: column;
+    }
+    .introduction-img {
+        display: flex;
+        justify-content: center;
+    }
+    .introduction-img img {
+        width: 55%;
+        margin: 0 auto;
+    }
+    .steps {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 2rem;
+    }
+    .application-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 2rem;
+    }
+    .about-container {
+        padding: 0 12rem;
+    }
+}
+
+@media (max-width: 425px) {
+    html {
+        font-size: 50%;
+    }
+
+    .logo {
+        font-size: 2.5rem;
+    }
+
+    #menu-icon {
+        font-size: 3rem;
+    }
+
+    .nav-links {
+        width: 65%;
+        padding: 1.5rem 2rem;
+    }
+    .section-title {
+        width: 40%;
+        font-size: 3rem;
+        white-space: nowrap;
+    }
+    .hero-content h1 {
+        font-size: 4.2rem;
+    }
+
+    .hero-content p {
+        font-size: 1.6rem;
+    }
+
+    .hero-image img {
+        width: 70vw;
+    }
+    .steps {
+        grid-template-columns: repeat(1, 1fr) !important;
+    }
+    .guidelines-list {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .application-grid {
+        grid-template-columns: repeat(1, 1fr) !important;
+    }
+    .gallery-container{
+        grid-template-columns: repeat(2,1fr);
+        padding: 0 4rem;
+    }
+    .about-container{
+        padding: 0 7rem;
+    }
+}
+
+@media (max-width: 399px) {
+    html {
+        font-size: 45%;
+    }
+    .logo {
+        width: 110px;
+    }
+    #menu-icon {
+        font-size: 3rem;
+    }
+    .nav-links {
+        width: 70%;
+        padding: 1rem;
+    }
+    .hero-content h1 {
+        font-size: 3.6rem;
+    }
+    .hero-image img {
+        width: 75vw;
+    }
+    .btn {
+        padding: 1rem 2.2rem;
+    }
+    .steps,
+    .application-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 320px) {
+    html {
+        font-size: 42%;
+    }
+    .logo {
+        font-size: 2.2rem;
+    }
+
+    .nav-links {
+        width: 85%;
+        padding: 1.2rem;
+    }
+    .hero {
+        padding-top: 12rem;
+        gap: 2.5rem;
+    }
+
+    .hero-content h1 {
+        font-size: 3.2rem;
+        line-height: 1.2;
+    }
+
+    .hero-content p {
+        font-size: 1.4rem;
+        line-height: 1.6;
+        max-width: 100%;
+    }
+    .hero-image {
+        box-shadow: 0 0.8rem 1.8rem rgba(0, 0, 0, 0.18);
+        border-radius: 1.4rem;
+    }
+    .hero-image img {
+        width: 80vw;
+        border-radius: 1.2rem;
+    }
+    .ecobrick-container {
+        padding: 2.5rem 6%;
+    }
+    .ecobrick-content {
+        padding: 2.5rem 3rem;
+        border-radius: 4rem;
+    }
+    .ecobrick-subtitle {
+        font-size: 2.8rem;
+        text-align: center;
+    }
+    .introduction {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .introduction-img img {
+        width: 65%;
+    }
+    .steps,
+    .application-grid,
+    .guidelines-list {
+        grid-template-columns: 1fr !important;
+    }
+    .gallery-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .footer-wrapper {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+    }
+    .footer-social a {
+        justify-content: center;
+    }
+}
