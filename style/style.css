@@ -4,7 +4,7 @@
 /* 1.1 FONT EKSTERNAL */
 @font-face {
     font-family: 'TheSeasons';
-    src: url('assets/font/Fontspring-DEMO-theseasons-bd.otf') format('opentype');
+    src: url('../assets/font/Fontspring-DEMO-theseasons-bd.otf') format('opentype');
     font-weight: 700;
     font-style: normal;
 }
@@ -38,8 +38,8 @@
     --gallery-tabs-bg: var(--secondary-color);
     --member-card-bg: var(--primary-color);
     
-    --logo-image-src: url('assets/img/global/logo-nav-light.png');
-    --image-bg-pattern: url('assets/img/global/primarybg.jpeg');
+    --logo-image-src: url('../assets/img/global/logo-nav-light.png');
+    --image-bg-pattern: url('../assets/img/global/primarybg.jpeg');
     
     --shadow-base: 0 2px 5px rgba(0,0,0,0.5);
     --shadow-hero-img : 0.9375rem 0.9375rem 0 rgba(17, 17, 17, 0.28);
@@ -64,8 +64,8 @@
     --gallery-tabs-bg: var(--secondary-txt);
     --member-card-bg: var(--secondary-txt);
 
-    --logo-image-src: url('assets/img/global/logo-nav-dark.png');
-    --image-bg-pattern: url('assets/img/global/primarybgdark.jpg');
+    --logo-image-src: url('../assets/img/global/logo-nav-dark.png');
+    --image-bg-pattern: url('../assets/img/global/primarybgdark.jpg');
 
     --shadow-base: 0 4px 12px rgba(0, 0, 0, 0.8);
     --shadow-hero-img : 0.9375rem 0.9375rem 0 rgba(158, 158, 158, 0.28);
@@ -912,17 +912,12 @@ nav {
     }
     .ecobrick-container{
         gap: 2rem;
-    }/
-    .ecobrick-content {
-        flex-direction: column;
     }
     .introduction-img {
         display: flex;
         justify-content: center;
     }
     .introduction-img img {
-        width: 55%;
-        margin: 0 auto;
     }
     .steps {
         display: grid;
@@ -971,6 +966,9 @@ nav {
 
     .hero-image img {
         width: 70vw;
+    }
+    .ecobrick-content {
+        flex-direction: column;
     }
     .steps {
         grid-template-columns: repeat(1, 1fr) !important;
