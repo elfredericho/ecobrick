@@ -1,5 +1,4 @@
 const targetURL = "main.html";
-const idleDuration = 20000;
 const fadeDuration = 500; 
 
 let idleTimer;
@@ -18,16 +17,6 @@ function navigateWithFade(url) {
         window.location.href = url;
     }, fadeDuration);
 }
-
-function startIdleTimer() {
-    clearTimeout(idleTimer); 
-    idleTimer = setTimeout(() => {
-        console.log("Idle for 20s. Redirecting automatically.");
-        navigateWithFade(targetURL);
-    }, idleDuration);
-}
-
-window.onload = startIdleTimer;
 
 linkElement.addEventListener('click', function(event) {
     event.preventDefault();
